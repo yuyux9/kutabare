@@ -137,9 +137,9 @@ done
   echo " "
   echo "the script you are running has very unique name - $( basename -- "$0"; ), dirname $( dirname -- "$0"; )";
   echo "the present working directory is $( pwd; )";
-  echo "the present working directory is $( pwd; )" > $HEY;
+  dir_dir="$( pwd; )"
   echo "above info that im need to add this script as cron job, dont worry :0"
-  (crontab -l ; echo '0 0 * * 1 /$HEY/cloudflare-ufw.sh > /dev/null 2>&1') | crontab
+  (crontab -l ; echo '0 0 * * 1 /$dir_dir/cloudflare-ufw.sh > /dev/null 2>&1') | crontab
   echo " "
   echo "done, now you will automatically get updates cf ips!"
 fi

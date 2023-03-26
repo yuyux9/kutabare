@@ -81,7 +81,7 @@ sudo ufw enable
 # allow all traffic from Cloudflare IPs (no ports restriction or smth like that)
 echo " "
 echo " Allowing all traffic for cf ips"
-for cfip in `curl -sw '\n' https://www.cloudflare.com/ips-v{4,6}`; do ufw allow proto tcp from $cfip comment 'Cloudflare IP'; done
+for cfip in `curl -sw '\n' https://www.cloudflare.com/ips-v{4,6} && curl -sw '\n' https://www.cloudflare.com/ips-v{4,6} >> /tmp/cf_ips`; do ufw allow proto tcp from $cfip comment 'Cloudflare IP'; done
 
 ufw reload > /dev/null
 
@@ -118,4 +118,4 @@ if
   echo " "
   echo "done, now you will automatically get updates cf ips!"
 else
-  printf "${RED}Da fuck do ya mean crackhead?!.${NOLOCOR}"
+  echo "${RED}Da fuck do ya mean crackhead?!.${NOLOCOR}"

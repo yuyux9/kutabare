@@ -46,6 +46,7 @@ fi
 if
   exists git && [ "$lzt" == "y" ]; then
   printf "${GREEN}Ufw found!${NOCOLOR}"
+  echo " "
 else
   ! exists ufw
   printf "${RED}Ufw not found.${NOLOCOR} Installing."

@@ -107,18 +107,16 @@ then
   exit
 fi
 
-if
-  [ "$tlz" == "y" ]; then
-  
+if  
   #~CHECKING FOR CRONTAB~
 echo " "
-read -p 'Checking for ufw, if it installed. If not, i will install it for you'
-  exists crontab && [ "$lzt" == "y" ]; then
-  printf "${GREEN}Ufw found!${NOCOLOR}"
+read -p 'Checking for cron, if it installed. If not, i will install it for you'
+  exists crontab && [ "$tlz" == "y" ]; then
+  printf "${GREEN}Cron found!${NOCOLOR}"
   echo " "
 else
   ! exists crontab
-  printf "${RED}cron not found.${NOLOCOR} Installing."
+  printf "${RED}Cron not found.${NOLOCOR} Installing."
   apt install cron -y 2>/dev/null &
 pid=$! # Process Id of the previous running command
 

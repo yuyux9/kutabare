@@ -110,7 +110,7 @@ fi
 if  
   #~CHECKING FOR CRONTAB~
 echo " "
-read -p 'Checking for cron, if it installed. If not, i will install it for you'
+read -p 'Checking for cron, if it installed. If not, i will install it for you - press enter!!!!!!!!'
   exists crontab && [ "$tlz" == "y" ]; then
   printf "${GREEN}Cron found!${NOCOLOR}"
   echo " "

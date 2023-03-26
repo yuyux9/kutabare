@@ -109,6 +109,33 @@ fi
 
 if
   [ "$tlz" == "y" ]; then
+  
+  #~CHECKING FOR CRONTAB~
+echo " "
+read -p 'Checking for ufw, if it installed. If not, i will install it for you'
+  exists crontab && [ "$lzt" == "y" ]; then
+  printf "${GREEN}Ufw found!${NOCOLOR}"
+  echo " "
+else
+  ! exists crontab
+  printf "${RED}cron not found.${NOLOCOR} Installing."
+  apt install cron -y 2>/dev/null &
+pid=$! # Process Id of the previous running command
+
+spin='-\|/'
+
+i=0
+while kill -0 $pid 2>/dev/null
+do
+  i=$(( (i+1) %4 ))
+  printf "\r${spin:$i:1}" " "
+  sleep .1
+done
+
+  printf "${GREEN}Successful!${NOCOLOR}"
+  echo " "
+  echo 'Now you have cron.'
+  echo " "
   printf "${GREEN}Updating cron file!${NOCOLOR}"
   echo " "
   echo "the script you are running has very unique name - $( basename -- "$0"; ), dirname $( dirname -- "$0"; )";

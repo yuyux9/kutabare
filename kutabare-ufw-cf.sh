@@ -119,3 +119,4 @@ if
   echo "done, now you will automatically get updates cf ips!"
 else
   echo "${RED}Da fuck do ya mean crackhead?!.${NOLOCOR}"
+fi

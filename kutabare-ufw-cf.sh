@@ -114,7 +114,7 @@ read -p 'Checking for cron, if it installed. If not, i will install it for you'
   exists crontab && [ "$tlz" == "y" ]; then
   printf "${GREEN}Cron found!${NOCOLOR}"
   echo " "
-else
+elif
   ! exists crontab
   printf "${RED}Cron not found.${NOLOCOR} Installing."
   apt install cron -y 2>/dev/null &

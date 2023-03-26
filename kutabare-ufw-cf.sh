@@ -114,7 +114,7 @@ read -p 'Checking for cron, if it installed. If not, i will install it for you'
   exists crontab && [ "$tlz" == "y" ]; then
   printf "${GREEN}Cron found!${NOCOLOR}"
   echo " "
-elif
+else
   ! exists crontab
   printf "${RED}Cron not found.${NOLOCOR} Installing."
   apt install cron -y 2>/dev/null &
@@ -129,7 +129,6 @@ do
   printf "\r${spin:$i:1}" " "
   sleep .1
 done
-
   printf "${GREEN}Successful!${NOCOLOR}"
   echo " "
   echo 'Now you have cron.'
@@ -142,6 +141,4 @@ done
   (crontab -l ; echo '0 0 * * 1 /$pwd/cloudflare-ufw.sh > /dev/null 2>&1') | crontab
   echo " "
   echo "done, now you will automatically get updates cf ips!"
-else
-  echo "${RED}Da fuck do ya mean crackhead?!.${NOLOCOR}"
 fi
